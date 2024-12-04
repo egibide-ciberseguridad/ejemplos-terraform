@@ -1,0 +1,27 @@
+// Credenciales de acceso a OpenNebula
+
+variable "opennebula_username" {
+  default = "ciber-xx"
+}
+
+variable "opennebula_token" {
+  default = "4b8cf5....................................................c1cb11"
+}
+
+// Plantilla de máquina virtual
+
+data "opennebula_templates" "busqueda" {
+  name_regex = "Alpine Linux 3.20"
+  sort_on    = "register_date"
+  order      = "ASC" # La más reciente
+}
+
+data "opennebula_template" "plantilla" {
+  id = data.opennebula_templates.busqueda.templates[0].id
+}
+
+// Red virtual
+
+data "opennebula_virtual_network" "red" {
+  name = "ciber-xx"
+}
