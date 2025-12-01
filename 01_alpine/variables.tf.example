@@ -1,18 +1,14 @@
-// Credenciales de acceso a OpenNebula
+// Usuario de OpenNebula
 
 variable "opennebula_username" {
   default = "ciber-xx"
-}
-
-variable "opennebula_token" {
-  default = "4b8cf5....................................................c1cb11"
 }
 
 // Plantilla de máquina virtual
 
 data "opennebula_templates" "busqueda" {
   name_regex = "Alpine Linux 3.20"
-  sort_on    = "register_date"
+  #sort_on    = "register_date"
   order      = "ASC" # La más reciente
 }
 

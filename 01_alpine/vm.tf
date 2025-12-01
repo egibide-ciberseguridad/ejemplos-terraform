@@ -22,6 +22,6 @@ resource "opennebula_virtual_machine" "vm" {
   disk {
     image_id = data.opennebula_template.plantilla.disk[0].image_id
     target   = "vda"
-    size     = 256
+    size     = 512
   }
 }
